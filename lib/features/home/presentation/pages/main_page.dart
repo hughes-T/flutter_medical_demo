@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
-import 'home_tab_page.dart';
+import 'new_home_page.dart';
 import 'training_tab_page.dart';
+import 'report_tab_page.dart';
 import 'profile_tab_page.dart';
 
 class MainPage extends StatefulWidget {
-  const MainPage({super.key});
+  final String version; // 儿童版 或 成人版
+
+  const MainPage({
+    super.key,
+    this.version = '儿童版',
+  });
 
   @override
   State<MainPage> createState() => _MainPageState();
@@ -13,11 +19,18 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   int _currentIndex = 0;
 
-  final List<Widget> _pages = [
-    const HomeTabPage(),
-    const TrainingTabPage(),
-    const ProfileTabPage(),
-  ];
+  late final List<Widget> _pages;
+
+  @override
+  void initState() {
+    super.initState();
+    _pages = [
+      NewHomePage(version: widget.version),
+      const TrainingTabPage(),
+      const ReportTabPage(),
+      const ProfileTabPage(),
+    ];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -43,9 +56,14 @@ class _MainPageState extends State<MainPage> {
             label: '首页',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.fitness_center_outlined),
-            activeIcon: Icon(Icons.fitness_center),
-            label: '训练',
+            icon: Icon(Icons.calendar_today_outlined),
+            activeIcon: Icon(Icons.calendar_today),
+            label: '计划',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.assessment_outlined),
+            activeIcon: Icon(Icons.assessment),
+            label: '报告',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person_outline),

@@ -15,7 +15,7 @@ class _UserInfoPageState extends State<UserInfoPage> {
   final _nicknameController = TextEditingController();
   bool _isLoading = false;
   String _selectedGender = '男';
-  String? _selectedAge = '20-30岁';
+  String? _selectedAge;
 
   final List<String> _ageRanges = [
     '18岁以下',
@@ -53,8 +53,8 @@ class _UserInfoPageState extends State<UserInfoPage> {
         _isLoading = false;
       });
 
-      // 跳转到首页
-      Navigator.pushReplacementNamed(context, AppRoutes.home);
+      // 跳转到设备连接页
+      Navigator.pushReplacementNamed(context, AppRoutes.deviceConnection);
     }
   }
 
@@ -81,7 +81,9 @@ class _UserInfoPageState extends State<UserInfoPage> {
                     children: [
                       CircleAvatar(
                         radius: 50,
-                        backgroundColor: Theme.of(context).primaryColor.withValues(alpha: 0.1),
+                        backgroundColor: Theme.of(context)
+                            .primaryColor
+                            .withValues(alpha: 0.1),
                         child: Icon(
                           Icons.person,
                           size: 50,
@@ -183,7 +185,8 @@ class _UserInfoPageState extends State<UserInfoPage> {
                             width: 20,
                             child: CircularProgressIndicator(
                               strokeWidth: 2,
-                              valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                              valueColor:
+                                  AlwaysStoppedAnimation<Color>(Colors.white),
                             ),
                           )
                         : const Text('完成'),
@@ -197,7 +200,8 @@ class _UserInfoPageState extends State<UserInfoPage> {
                     onPressed: () async {
                       await StorageService.setLoggedIn(true);
                       if (!mounted) return;
-                      Navigator.pushReplacementNamed(context, AppRoutes.home);
+                      Navigator.pushReplacementNamed(
+                          context, AppRoutes.deviceConnection);
                     },
                     child: const Text('跳过'),
                   ),
@@ -226,7 +230,9 @@ class _UserInfoPageState extends State<UserInfoPage> {
               ? Theme.of(context).primaryColor.withValues(alpha: 0.1)
               : Colors.grey[100],
           border: Border.all(
-            color: isSelected ? Theme.of(context).primaryColor : Colors.transparent,
+            color: isSelected
+                ? Theme.of(context).primaryColor
+                : Colors.transparent,
             width: 2,
           ),
           borderRadius: BorderRadius.circular(12),
@@ -242,7 +248,8 @@ class _UserInfoPageState extends State<UserInfoPage> {
             Text(
               gender,
               style: TextStyle(
-                color: isSelected ? Theme.of(context).primaryColor : Colors.grey,
+                color:
+                    isSelected ? Theme.of(context).primaryColor : Colors.grey,
                 fontWeight: isSelected ? FontWeight.w600 : FontWeight.normal,
               ),
             ),

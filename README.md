@@ -1,6 +1,16 @@
 # Flutter Medical Training Demo
 
+[![GitHub Pages](https://img.shields.io/badge/demo-online-brightgreen)](https://hughes-t.github.io/flutter_medical_demo/)
+[![Flutter](https://img.shields.io/badge/Flutter-3.0+-blue.svg)](https://flutter.dev/)
+[![License](https://img.shields.io/badge/license-MIT-purple.svg)](LICENSE)
+
 一个基于 Flutter 的呼吸康复训练移动应用 Demo。
+
+## 🌐 在线演示
+
+**点击查看在线演示：** [https://hughes-t.github.io/flutter_medical_demo/](https://hughes-t.github.io/flutter_medical_demo/)
+
+> 注意：在线演示为 Web 版本，最佳体验请使用 Chrome 或 Edge 浏览器访问。
 
 ## 功能特性
 
