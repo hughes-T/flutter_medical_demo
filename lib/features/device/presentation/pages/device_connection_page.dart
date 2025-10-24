@@ -123,7 +123,7 @@ class _DeviceConnectionPageState extends State<DeviceConnectionPage> {
                           title: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                              Text('设备图片'),
+                              const Text('设备图片'),
                               Text(_devices[index]),
                             ],
                           ),
@@ -179,7 +179,7 @@ class _DeviceConnectionPageState extends State<DeviceConnectionPage> {
 
               // 底部提示
               const SizedBox(height: 16),
-              Text(
+              const Text(
                 '搜索设备过程需按遥控器的\n联接设备。',
                 style: TextStyle(
                   color: Colors.red,

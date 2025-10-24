@@ -43,7 +43,7 @@ class DevConfig {
     }
 
     if (skipLogin) {
-      return '开发模式 - 跳过登录直接进入${defaultVersion}首页';
+      return '开发模式 - 跳过登录直接进入$defaultVersion首页';
     }
 
     return '开发模式 - 显示登录页';

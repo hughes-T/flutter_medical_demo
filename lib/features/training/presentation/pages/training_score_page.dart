@@ -103,7 +103,7 @@ class _TrainingScorePageState extends State<TrainingScorePage>
   String _formatDuration(int seconds) {
     final minutes = seconds ~/ 60;
     final secs = seconds % 60;
-    return '${minutes}分${secs}秒';
+    return '$minutes分$secs秒';
   }
 
   @override
@@ -348,9 +348,9 @@ class _TrainingScorePageState extends State<TrainingScorePage>
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     if (isChild)
-                      Text(
+                      const Text(
                         '🌟 ',
-                        style: const TextStyle(fontSize: 24),
+                        style: TextStyle(fontSize: 24),
                       ),
                     Flexible(
                       child: Text(
@@ -426,9 +426,9 @@ class _TrainingScorePageState extends State<TrainingScorePage>
           Row(
             children: [
               if (isChild)
-                Text(
+                const Text(
                   '📊 ',
-                  style: const TextStyle(fontSize: 20),
+                  style: TextStyle(fontSize: 20),
                 ),
               Text(
                 '训练数据',

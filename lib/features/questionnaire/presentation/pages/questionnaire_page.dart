@@ -240,7 +240,7 @@ class _QuestionnairePageState extends State<QuestionnairePage> {
                   ),
                 ),
               );
-            }).toList(),
+            }),
           ],
         ),
       ),

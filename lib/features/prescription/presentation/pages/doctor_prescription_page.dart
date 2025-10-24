@@ -31,9 +31,9 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
 
   // 训练模式颜色映射
   final Map<String, Color> _trainingColors = {
-    '呼气训练': Color(0xFF4FC3F7),
-    '吸气训练': Color(0xFF66BB6A),
-    '振荡排痰': Color(0xFFFF6B6B),
+    '呼气训练': const Color(0xFF4FC3F7),
+    '吸气训练': const Color(0xFF66BB6A),
+    '振荡排痰': const Color(0xFFFF6B6B),
   };
 
   // 训练挡位
@@ -183,7 +183,7 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
         padding: const EdgeInsets.symmetric(vertical: 14),
         decoration: BoxDecoration(
           gradient: isSelected
-              ? LinearGradient(
+              ? const LinearGradient(
                   colors: [
                     Color(0xFF4FC3F7),
                     Color(0xFF0288D1),
@@ -197,16 +197,16 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
           boxShadow: isSelected
               ? [
                   BoxShadow(
-                    color: Color(0xFF4FC3F7).withValues(alpha: 0.3),
+                    color: const Color(0xFF4FC3F7).withValues(alpha: 0.3),
                     blurRadius: 8,
-                    offset: Offset(0, 4),
+                    offset: const Offset(0, 4),
                   ),
                 ]
               : [
                   BoxShadow(
                     color: Colors.black.withValues(alpha: 0.05),
                     blurRadius: 4,
-                    offset: Offset(0, 2),
+                    offset: const Offset(0, 2),
                   ),
                 ],
         ),
@@ -227,7 +227,7 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
   Widget _buildEnhancedSectionTitle(String title, IconData icon) {
     return Row(
       children: [
-        Icon(icon, size: 20, color: Color(0xFF4FC3F7)),
+        Icon(icon, size: 20, color: const Color(0xFF4FC3F7)),
         const SizedBox(width: 8),
         Text(
           title,
@@ -251,7 +251,7 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
-            offset: Offset(0, 2),
+            offset: const Offset(0, 2),
           ),
         ],
         border: Border.all(
@@ -282,7 +282,7 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
                   const SizedBox(width: 12),
                   Text(
                     mode,
-                    style: TextStyle(
+                    style: const TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w600,
                       color: Colors.black87,
@@ -315,7 +315,7 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
-            offset: Offset(0, 2),
+            offset: const Offset(0, 2),
           ),
         ],
       ),
@@ -339,7 +339,7 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
             width: 80,
             height: 80,
             decoration: BoxDecoration(
-              gradient: LinearGradient(
+              gradient: const LinearGradient(
                 colors: [
                   Color(0xFFE1F5FE),
                   Color(0xFFB3E5FC),
@@ -349,7 +349,7 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
               ),
               borderRadius: BorderRadius.circular(16),
               border: Border.all(
-                color: Color(0xFF4FC3F7),
+                color: const Color(0xFF4FC3F7),
                 width: 2,
               ),
             ),
@@ -383,10 +383,10 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
               width: 40,
               height: 40,
               decoration: BoxDecoration(
-                color: Color(0xFF4FC3F7).withValues(alpha: 0.1),
+                color: const Color(0xFF4FC3F7).withValues(alpha: 0.1),
                 borderRadius: BorderRadius.circular(8),
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.arrow_drop_down,
                 color: Color(0xFF4FC3F7),
               ),
@@ -427,7 +427,7 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
                   margin: const EdgeInsets.symmetric(horizontal: 1),
                   decoration: BoxDecoration(
                     color: isActive
-                        ? Color(0xFF4FC3F7)
+                        ? const Color(0xFF4FC3F7)
                         : Colors.grey[300],
                     borderRadius: BorderRadius.circular(2),
                   ),
@@ -438,7 +438,7 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
                     level.toString(),
                     style: TextStyle(
                       fontSize: 10,
-                      color: isActive ? Color(0xFF4FC3F7) : Colors.grey,
+                      color: isActive ? const Color(0xFF4FC3F7) : Colors.grey,
                       fontWeight: isActive ? FontWeight.bold : FontWeight.normal,
                     ),
                   ),
@@ -461,7 +461,7 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
           BoxShadow(
             color: Colors.black.withValues(alpha: 0.05),
             blurRadius: 10,
-            offset: Offset(0, 2),
+            offset: const Offset(0, 2),
           ),
         ],
       ),
@@ -542,7 +542,7 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
         height: 48,
         decoration: BoxDecoration(
           gradient: onPressed != null
-              ? LinearGradient(
+              ? const LinearGradient(
                   colors: [
                     Color(0xFF4FC3F7),
                     Color(0xFF0288D1),
@@ -556,9 +556,9 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
           boxShadow: onPressed != null
               ? [
                   BoxShadow(
-                    color: Color(0xFF4FC3F7).withValues(alpha: 0.3),
+                    color: const Color(0xFF4FC3F7).withValues(alpha: 0.3),
                     blurRadius: 8,
-                    offset: Offset(0, 4),
+                    offset: const Offset(0, 4),
                   ),
                 ]
               : null,
@@ -578,7 +578,7 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
       width: double.infinity,
       height: 56,
       decoration: BoxDecoration(
-        gradient: LinearGradient(
+        gradient: const LinearGradient(
           colors: [
             Color(0xFF4FC3F7),
             Color(0xFF0288D1),
@@ -589,9 +589,9 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
         borderRadius: BorderRadius.circular(16),
         boxShadow: [
           BoxShadow(
-            color: Color(0xFF4FC3F7).withValues(alpha: 0.4),
+            color: const Color(0xFF4FC3F7).withValues(alpha: 0.4),
             blurRadius: 12,
-            offset: Offset(0, 6),
+            offset: const Offset(0, 6),
           ),
         ],
       ),
@@ -600,7 +600,7 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
         child: InkWell(
           onTap: _onConfirm,
           borderRadius: BorderRadius.circular(16),
-          child: Center(
+          child: const Center(
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -609,7 +609,7 @@ class _DoctorPrescriptionPageState extends State<DoctorPrescriptionPage> {
                   color: Colors.white,
                   size: 24,
                 ),
-                const SizedBox(width: 8),
+                SizedBox(width: 8),
                 Text(
                   '确定并继续',
                   style: TextStyle(

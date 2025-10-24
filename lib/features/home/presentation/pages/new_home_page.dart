@@ -118,21 +118,21 @@ class _NewHomePageState extends State<NewHomePage> {
     TrainingModule(
       name: '呼气训练',
       icon: Icons.air,
-      color: Color(0xFF4FC3F7),
+      color: const Color(0xFF4FC3F7),
       emoji: '💨',
       description: '呼～让我们一起吹泡泡！',
     ),
     TrainingModule(
       name: '吸气训练',
       icon: Icons.water_drop,
-      color: Color(0xFF66BB6A),
+      color: const Color(0xFF66BB6A),
       emoji: '💧',
       description: '深呼吸，像闻花香一样～',
     ),
     TrainingModule(
       name: '振荡排痰',
       icon: Icons.vibration,
-      color: Color(0xFFFF6B6B),
+      color: const Color(0xFFFF6B6B),
       emoji: '🎵',
       description: '一起摇摆，轻松排痰！',
     ),
@@ -543,9 +543,9 @@ class _NewHomePageState extends State<NewHomePage> {
             Container(
               margin: const EdgeInsets.only(top: 8),
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
-              decoration: BoxDecoration(
+              decoration: const BoxDecoration(
                 color: Colors.white,
-                borderRadius: const BorderRadius.only(
+                borderRadius: BorderRadius.only(
                   topLeft: Radius.circular(24),
                   topRight: Radius.circular(24),
                 ),
@@ -744,7 +744,7 @@ class _NewHomePageState extends State<NewHomePage> {
                     ),
                     const SizedBox(width: 8),
                     Text(
-                      '如何进行${_selectedTraining}？',
+                      '如何进行$_selectedTraining？',
                       style: TextStyle(
                         fontSize: 14,
                         color: Colors.grey[600],
@@ -767,12 +767,12 @@ class _NewHomePageState extends State<NewHomePage> {
                         ),
                         borderRadius: BorderRadius.circular(12),
                       ),
-                      child: Row(
+                      child: const Row(
                         mainAxisSize: MainAxisSize.min,
                         children: [
-                          const Icon(Icons.play_circle_outline, size: 18, color: Colors.white),
-                          const SizedBox(width: 4),
-                          const Text(
+                          Icon(Icons.play_circle_outline, size: 18, color: Colors.white),
+                          SizedBox(width: 4),
+                          Text(
                             '语音播',
                             style: TextStyle(
                               fontSize: 13,

@@ -9,7 +9,6 @@ import '../features/version/presentation/pages/version_selection_page.dart';
 import '../features/prescription/presentation/pages/doctor_prescription_page.dart';
 import '../features/questionnaire/presentation/pages/questionnaire_page.dart';
 import '../features/home/presentation/pages/main_page.dart';
-import '../features/home/presentation/pages/new_home_page.dart';
 import '../features/training/presentation/pages/child_training_page.dart';
 
 class AppRoutes {
