@@ -43,55 +43,26 @@ class _NewHomePageState extends State<NewHomePage> {
       body: SafeArea(
         child: Column(
           children: [
-            // 顶部版本提示
+            // 顶部版本横幅
             Container(
               width: double.infinity,
-              padding: const EdgeInsets.all(16),
-              color: isChildVersion ? const Color(0xFF4FC3F7) : const Color(0xFF66BB6A),
-              child: Column(
+              padding: const EdgeInsets.symmetric(vertical: 12),
+              decoration: BoxDecoration(
+                color: isChildVersion ? const Color(0xFF4FC3F7) : const Color(0xFF66BB6A),
+              ),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    '仅限本用户当前使用版本：',
+                    widget.version,
                     style: const TextStyle(
                       color: Colors.white,
-                      fontSize: 12,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
                     ),
                   ),
-                  const SizedBox(height: 4),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        widget.version,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontSize: 18,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      const SizedBox(width: 8),
-                      const Icon(Icons.check_circle, color: Colors.white, size: 20),
-                    ],
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    '未选择，则不可以使用相关功能，\n不可切换。\n引导用户选择版本',
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 11,
-                      height: 1.5,
-                    ),
-                  ),
-                  const SizedBox(height: 8),
-                  Text(
-                    '没备选版本会\n只显示选择的版本',
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(
-                      color: Colors.white,
-                      fontSize: 10,
-                    ),
-                  ),
+                  const SizedBox(width: 8),
+                  const Icon(Icons.check_circle, color: Colors.white, size: 20),
                 ],
               ),
             ),

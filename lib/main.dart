@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 import 'app/theme.dart';
 import 'app/routes.dart';
 import 'features/splash/presentation/pages/splash_page.dart';
+import 'services/storage_service.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -13,8 +13,8 @@ void main() async {
   // Initialize Hive
   await Hive.initFlutter();
 
-  // Initialize SharedPreferences (预加载，实际使用在 StorageService 中)
-  await SharedPreferences.getInstance();
+  // Initialize StorageService
+  await StorageService.init();
 
   runApp(
     const ProviderScope(
