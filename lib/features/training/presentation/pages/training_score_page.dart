@@ -132,19 +132,7 @@ class _TrainingScorePageState extends State<TrainingScorePage>
                   padding: const EdgeInsets.all(24),
                   child: Column(
                     children: [
-                      const SizedBox(height: 20),
-
-                      // 标题
-                      if (isChild)
-                        Text(
-                          '得分界面参考',
-                          style: TextStyle(
-                            fontSize: 18,
-                            color: Colors.grey[600],
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                      const SizedBox(height: 24),
+                      const SizedBox(height: 40),
 
                       // 分数展示区域
                       _buildScoreDisplay(isChild),
@@ -160,58 +148,6 @@ class _TrainingScorePageState extends State<TrainingScorePage>
                       _buildTrainingStats(isChild),
 
                       const SizedBox(height: 32),
-
-                      // 提示文字
-                      if (isChild)
-                        Container(
-                          padding: const EdgeInsets.all(16),
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(16),
-                            border: Border.all(color: Colors.grey[300]!),
-                          ),
-                          child: Column(
-                            children: [
-                              Text(
-                                '训练完成后，在当前页面弹出',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.grey[700],
-                                  height: 1.5,
-                                ),
-                              ),
-                              const SizedBox(height: 8),
-                              Text(
-                                '得分+激励性语音。',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.grey[700],
-                                  height: 1.5,
-                                ),
-                              ),
-                              const SizedBox(height: 8),
-                              Text(
-                                '生成训练报告（已同步至"报告"）',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: Colors.grey[700],
-                                  height: 1.5,
-                                ),
-                              ),
-                              const SizedBox(height: 16),
-                              Text(
-                                '儿童版的得分反馈页面-趣味化',
-                                style: TextStyle(
-                                  fontSize: 14,
-                                  color: _primaryColor,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-
-                      const SizedBox(height: 24),
 
                       // 按钮组
                       _buildActionButtons(isChild),

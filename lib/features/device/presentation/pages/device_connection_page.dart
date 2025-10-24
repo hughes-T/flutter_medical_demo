@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import '../../../../app/routes.dart';
 
 class DeviceConnectionPage extends StatefulWidget {
-  const DeviceConnectionPage({super.key});
+  final bool showSkipButton; // 是否显示跳过按钮
+
+  const DeviceConnectionPage({
+    super.key,
+    this.showSkipButton = true, // 默认显示
+  });
 
   @override
   State<DeviceConnectionPage> createState() => _DeviceConnectionPageState();
@@ -45,8 +50,14 @@ class _DeviceConnectionPageState extends State<DeviceConnectionPage> {
     if (!mounted) return;
     Navigator.pop(context);
 
-    // 连接成功，跳转到下一页
-    Navigator.pushReplacementNamed(context, AppRoutes.versionSelection);
+    // 连接成功
+    if (widget.showSkipButton) {
+      // 正常流程：跳转到版本选择页
+      Navigator.pushReplacementNamed(context, AppRoutes.versionSelection);
+    } else {
+      // 从首页跳转过来：返回首页，并更新连接状态
+      Navigator.pop(context, true); // 返回 true 表示连接成功
+    }
   }
 
   @override
@@ -155,15 +166,16 @@ class _DeviceConnectionPageState extends State<DeviceConnectionPage> {
               ),
               const SizedBox(height: 16),
 
-              // 跳过按钮
-              Center(
-                child: TextButton(
-                  onPressed: () {
-                    Navigator.pushReplacementNamed(context, AppRoutes.versionSelection);
-                  },
-                  child: const Text('跳过'),
+              // 跳过按钮（根据参数控制是否显示）
+              if (widget.showSkipButton)
+                Center(
+                  child: TextButton(
+                    onPressed: () {
+                      Navigator.pushReplacementNamed(context, AppRoutes.versionSelection);
+                    },
+                    child: const Text('跳过'),
+                  ),
                 ),
-              ),
 
               // 底部提示
               const SizedBox(height: 16),

@@ -47,7 +47,10 @@ class AppRoutes {
         return MaterialPageRoute(builder: (_) => const UserInfoPage());
 
       case deviceConnection:
-        return MaterialPageRoute(builder: (_) => const DeviceConnectionPage());
+        final showSkipButton = settings.arguments as bool? ?? true;
+        return MaterialPageRoute(
+          builder: (_) => DeviceConnectionPage(showSkipButton: showSkipButton),
+        );
 
       case versionSelection:
         return MaterialPageRoute(builder: (_) => const VersionSelectionPage());

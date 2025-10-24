@@ -40,7 +40,7 @@ class _ChildTrainingPageState extends State<ChildTrainingPage>
 
   // 儿童呼吸素材视频URL
   static const String _videoUrl =
-      'https://image.waiqin365.com/9198326415823622030/customFields/202510/202510241319855_9d964b90f1f746a4b462d7a35ed5a6ff.mp4';
+      'https://image.waiqin365.com/9198326415823622030/customFields/202510/202510241447410_25cc645143ed45b1966b6adeded3651d.mp4';
 
   @override
   void initState() {

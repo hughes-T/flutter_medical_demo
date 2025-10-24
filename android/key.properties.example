@@ -1,0 +1,8 @@
+# Android 签名密钥配置示例
+# 复制此文件为 key.properties 并填写实际的密钥信息
+# 注意：key.properties 文件不应提交到版本控制系统
+
+storePassword=your-keystore-password
+keyPassword=your-key-password
+keyAlias=upload
+storeFile=upload-keystore.jks

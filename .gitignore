@@ -29,6 +29,7 @@ migrate_working_dir/
 .pub-cache/
 .pub/
 /build/
+pubspec.lock
 
 # Symbolication related
 app.*.symbols
@@ -40,6 +41,67 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Android local properties (contains SDK path, should not be committed)
+/android/local.properties
+android/local.properties
+
+# Gradle files (build cache - should NOT be committed)
+/android/.gradle/
+android/.gradle/
+.gradle/
+/android/build/
+android/build/
+/android/app/build/
+android/app/build/
+/android/captures/
+android/captures/
+/android/.externalNativeBuild/
+android/.externalNativeBuild/
+/android/.cxx/
+android/.cxx/
+
+# Gradle Wrapper - SHOULD be committed (helps team use same Gradle version)
+# These files SHOULD stay tracked for consistency across team
+# DO NOT uncomment these unless you have a good reason:
+# /android/gradle/
+# /android/gradlew
+# /android/gradlew.bat
+
+# Android keystore (NEVER commit these! Security risk!)
+*.jks
+*.keystore
+/android/key.properties
+android/key.properties
+
+# Android generated files (SHOULD be committed for proper build)
+# android/app/src/main/AndroidManifest.xml - KEEP THIS
+# android/app/build.gradle - KEEP THIS
+# android/build.gradle - KEEP THIS
+# android/settings.gradle - KEEP THIS
+# android/gradle.properties - KEEP THIS
+
+# DevTools
+devtools_options.yaml
+
+# Temporary files
+nul
+*.tmp
+*.temp
+
+# Test coverage
+coverage/
+test/.test_coverage.dart
+lcov.info
+
+# Generated files
+*.g.dart
+*.freezed.dart
+*.mocks.dart
+
+# Firebase (if not using)
+# google-services.json
+# GoogleService-Info.plist
 
 # iOS/XCode related
 **/ios/**/*.mode1v3

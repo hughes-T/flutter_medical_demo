@@ -11,7 +11,7 @@ class DevConfig {
   ///
   /// true: 开发模式，可以跳过登录等操作
   /// false: 生产模式，正常流程
-  static const bool isDevelopmentMode = true;
+  static const bool isDevelopmentMode = false;
 
   /// 是否强制显示引导页（仅在开发模式下生效）
   ///
@@ -23,7 +23,7 @@ class DevConfig {
   ///
   /// true: 跳过登录，直接进入首页
   /// false: 显示登录页面
-  static const bool skipLogin = true;
+  static const bool skipLogin = false;
 
   /// 默认版本（仅在跳过登录时使用）
   ///
