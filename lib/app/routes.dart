@@ -65,8 +65,23 @@ class AppRoutes {
         );
 
       case home:
-        final version = settings.arguments as String? ?? '儿童版';
-        return MaterialPageRoute(builder: (_) => MainPage(version: version));
+        final args = settings.arguments;
+        String version = '儿童版';
+        int initialTabIndex = 0;
+
+        if (args is String) {
+          version = args;
+        } else if (args is Map<String, dynamic>) {
+          version = args['version'] as String? ?? '儿童版';
+          initialTabIndex = args['initialTabIndex'] as int? ?? 0;
+        }
+
+        return MaterialPageRoute(
+          builder: (_) => MainPage(
+            version: version,
+            initialTabIndex: initialTabIndex,
+          ),
+        );
 
       case training:
         final args = settings.arguments as Map<String, dynamic>;

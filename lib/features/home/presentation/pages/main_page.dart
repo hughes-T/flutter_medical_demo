@@ -6,10 +6,12 @@ import 'profile_tab_page.dart';
 
 class MainPage extends StatefulWidget {
   final String version; // 儿童版 或 成人版
+  final int initialTabIndex; // 初始显示的 tab 索引
 
   const MainPage({
     super.key,
     this.version = '儿童版',
+    this.initialTabIndex = 0,
   });
 
   @override
@@ -17,13 +19,14 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  int _currentIndex = 0;
+  late int _currentIndex;
 
   late final List<Widget> _pages;
 
   @override
   void initState() {
     super.initState();
+    _currentIndex = widget.initialTabIndex;
     _pages = [
       NewHomePage(version: widget.version),
       const TrainingTabPage(),

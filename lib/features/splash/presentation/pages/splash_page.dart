@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../../app/routes.dart';
 import '../../../../services/storage_service.dart';
+import '../../../../config/dev_config.dart';
 
 class SplashPage extends StatefulWidget {
   const SplashPage({super.key});
@@ -46,9 +47,45 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
     });
   }
 
-  void _skipSplash() {
+  Future<void> _skipSplash() async {
     if (!mounted) return;
-    Navigator.pushReplacementNamed(context, AppRoutes.onboarding);
+
+    // 初始化存储服务
+    await StorageService.init();
+
+    // 开发模式：直接跳转到首页
+    if (DevConfig.shouldSkipLogin) {
+      if (!mounted) return;
+      Navigator.pushReplacementNamed(
+        context,
+        AppRoutes.home,
+        arguments: DevConfig.defaultVersion,
+      );
+      return;
+    }
+
+    // 检查是否首次启动
+    final isFirstLaunch = await StorageService.isFirstLaunch();
+
+    if (!mounted) return;
+
+    // 根据配置决定是否显示引导页
+    if (DevConfig.shouldShowOnboarding(isFirstLaunch)) {
+      // 显示引导页
+      if (!mounted) return;
+      Navigator.pushReplacementNamed(context, AppRoutes.onboarding);
+    } else {
+      // 检查登录状态
+      final isLoggedIn = await StorageService.isLoggedIn();
+      if (!mounted) return;
+      if (isLoggedIn) {
+        // 已登录，跳转到首页
+        Navigator.pushReplacementNamed(context, AppRoutes.home);
+      } else {
+        // 未登录，跳转到登录页
+        Navigator.pushReplacementNamed(context, AppRoutes.loginPhone);
+      }
+    }
   }
 
   Future<void> _navigateToNextPage() async {
@@ -59,15 +96,25 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
     // 初始化存储服务
     await StorageService.init();
 
+    // 开发模式：直接跳转到首页
+    if (DevConfig.shouldSkipLogin) {
+      if (!mounted) return;
+      Navigator.pushReplacementNamed(
+        context,
+        AppRoutes.home,
+        arguments: DevConfig.defaultVersion,
+      );
+      return;
+    }
+
     // 检查是否首次启动
-    // TODO: 开发测试时，可以临时设置为 true 来查看引导页
-    // final isFirstLaunch = await StorageService.isFirstLaunch();
-    final isFirstLaunch = true; // 临时：始终显示引导页（开发测试用）
+    final isFirstLaunch = await StorageService.isFirstLaunch();
 
     if (!mounted) return;
 
-    if (isFirstLaunch) {
-      // 首次启动，跳转到引导页
+    // 根据配置决定是否显示引导页
+    if (DevConfig.shouldShowOnboarding(isFirstLaunch)) {
+      // 显示引导页
       if (!mounted) return;
       Navigator.pushReplacementNamed(context, AppRoutes.onboarding);
     } else {
@@ -92,6 +139,9 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
 
   @override
   Widget build(BuildContext context) {
+    // 使用固定的主题色，确保在所有平台一致显示
+    const primaryColor = Color(0xFF4A90E2);
+
     return Scaffold(
       backgroundColor: Colors.white,
       body: Stack(
@@ -108,11 +158,11 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
                     width: 120,
                     height: 120,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).primaryColor,
+                      color: primaryColor,
                       borderRadius: BorderRadius.circular(24),
                       boxShadow: [
                         BoxShadow(
-                          color: Theme.of(context).primaryColor.withValues(alpha: 0.3),
+                          color: primaryColor.withValues(alpha: 0.3),
                           blurRadius: 20,
                           offset: const Offset(0, 10),
                         ),
@@ -127,21 +177,23 @@ class _SplashPageState extends State<SplashPage> with SingleTickerProviderStateM
                   const SizedBox(height: 32),
 
                   // 应用名称
-                  Text(
+                  const Text(
                     'Medical Training',
-                    style: Theme.of(context).textTheme.displaySmall?.copyWith(
-                          fontWeight: FontWeight.bold,
-                          color: Theme.of(context).primaryColor,
-                        ),
+                    style: TextStyle(
+                      fontSize: 32,
+                      fontWeight: FontWeight.bold,
+                      color: primaryColor,
+                    ),
                   ),
                   const SizedBox(height: 8),
 
                   // 副标题
                   Text(
                     '呼吸康复训练系统',
-                    style: Theme.of(context).textTheme.bodyLarge?.copyWith(
-                          color: Colors.grey,
-                        ),
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.grey[600],
+                    ),
                   ),
                 ],
               ),
